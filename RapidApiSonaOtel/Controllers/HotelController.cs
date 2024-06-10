@@ -42,8 +42,8 @@ namespace RapidApiSonaOtel.Controllers
                     cityName = model.cityName,
                     arrivalDate = model.arrivalDate,
                     departureDate = model.departureDate,
-                    //adultCount = model.adultCount,
-                    //roomCount = model.roomCount
+                    adultCount = model.adultCount,
+                    roomCount = model.roomCount
                 };
                 return RedirectToAction("HotelList", getSearch);
             }
@@ -56,7 +56,7 @@ namespace RapidApiSonaOtel.Controllers
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri($"https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels?dest_id={model.destID}&search_type=CITY&arrival_date={model.arrivalDate.ToString("yyyy-MM-dd")}&departure_date={model.departureDate.ToString("yyyy-MM-dd")}&adults=2&room_qty=1&page_number=1&languagecode=en-us&currency_code=EUR"),
+                RequestUri = new Uri($"https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels?dest_id={model.destID}&search_type=CITY&arrival_date={model.arrivalDate.ToString("yyyy-MM-dd")}&departure_date={model.departureDate.ToString("yyyy-MM-dd")}&adults={model.adultCount}&room_qty={model.roomCount}&page_number=1&languagecode=en-us&currency_code=EUR"),
                 Headers =
     {
         { "X-RapidAPI-Key", "d872a0b501mshaccbf8beb278337p1a2e61jsn7b1fbeaa3a51" },
